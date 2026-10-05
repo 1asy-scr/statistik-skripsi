@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statistik Skripsi — Analisis Data Pendidikan</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="brand">📊 <span>Statistik Skripsi</span></div><nav><a href="#beranda">Beranda</a><a href="#analisis">Analisis</a><a href="#panduan">Panduan</a></nav></header>
+<main>
+<section id="beranda" class="hero"><div><span class="eyebrow">UNTUK MAHASISWA KEPENDIDIKAN</span><h1>Analisis data skripsi, dari Excel sampai narasi.</h1><p>Unggah CSV/Excel, periksa data, pilih tujuan penelitian, jalankan analisis, dan dapatkan tabel, grafik, interpretasi, serta draf narasi.</p><button class="primary" onclick="document.getElementById('fileInput').click()">Mulai Analisis</button></div><div class="hero-card"><b>Privasi data</b><p>Analisis dasar dilakukan langsung di browser. File tidak perlu dikirim ke server aplikasi.</p><div class="chips"><span>CSV</span><span>XLSX</span><span>Deskriptif</span><span>t-test</span><span>Korelasi</span></div></div></section>
+<section id="analisis" class="panel">
+<div class="steps"><span class="active">1 Upload</span><span>2 Data</span><span>3 Tujuan</span><span>4 Analisis</span><span>5 Hasil</span></div>
+<div id="uploadBox" class="upload"><div class="upload-icon">⬆</div><h2>Unggah data penelitian</h2><p>Format yang didukung: .xlsx, .xls, .csv</p><input id="fileInput" type="file" accept=".xlsx,.xls,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden><button class="secondary" onclick="document.getElementById('fileInput').click()">Pilih File</button><div id="fileInfo"></div></div>
+<div id="appArea" hidden>
+<div class="grid2"><div><h2>Data Preview</h2><div id="dataSummary" class="summary"></div></div><div><h2>Identifikasi Data</h2><div id="columnList" class="column-list"></div></div></div>
+<div class="table-wrap"><table id="dataTable"></table></div>
+<div class="card"><h2>Tujuan Analisis</h2><p class="muted">Jika belum tahu nama uji statistik, jawab berdasarkan tujuan penelitian.</p><div id="goalButtons" class="goal-grid"></div><div id="recommendation" class="recommendation" hidden></div></div>
+<div class="card"><h2>Analisis</h2><div id="analysisControls"></div><div id="analysisResult"></div></div>
+<div class="card"><h2>Grafik</h2><div class="chart-box"><canvas id="chart"></canvas></div></div>
+<div class="card"><h2>Narasi Hasil</h2><textarea id="narrative" rows="9" readonly></textarea><div class="actions"><button class="secondary" onclick="copyNarrative()">Salin Narasi</button><button class="secondary" onclick="downloadReport()">Unduh Laporan TXT</button></div></div>
+</div></section>
+<section id="panduan" class="guide"><h2>Panduan singkat</h2><div class="guide-grid"><article><b>1. Siapkan data</b><p>Baris pertama menjadi nama variabel dan setiap baris berikutnya menjadi responden.</p></article><article><b>2. Periksa data</b><p>Pastikan variabel numerik benar-benar berupa angka dan tidak ada nilai yang salah input.</p></article><article><b>3. Pilih tujuan</b><p>Gunakan rekomendasi sistem sebagai bantuan, bukan pengganti keputusan metodologis.</p></article><article><b>4. Verifikasi</b><p>Bandingkan hasil dengan desain penelitian, hipotesis, dan pedoman skripsi kampus.</p></article></div></section>
+</main><footer>Statistik Skripsi • Analisis lokal di browser • GitHub Pages ready</footer>
+<script src="js/app.js"></script>
+</body></html>
